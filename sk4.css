@@ -1327,3 +1327,66 @@ button:hover {
       clip: rect(53px, 9999px, 106px, 0);
   }
 }
+
+
+/* General responsiveness for smaller screens */
+@media (max-width: 1200px) {
+  h1 {
+      font-size: 4rem;
+  }
+  h2 {
+      font-size: 1.8rem;
+  }
+  .section {
+      padding: 3rem 1.5rem;
+  }
+  .skills-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  header nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+  .skills-container, .project-grid {
+      grid-template-columns: 1fr;
+  }
+  h1 {
+      font-size: 2.5rem;
+  }
+  h2 {
+      font-size: 1.5rem;
+  }
+  .about-content, .contact-container {
+      flex-direction: column;
+  }
+}
+
+
+.container {
+  width: 90%; /* Instead of fixed width */
+  margin: 0 auto;
+}
+
+
+body {
+  font-size: 16px; /* Default for large screens */
+}
+@media (max-width: 768px) {
+  body {
+      font-size: 14px;
+  }
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
