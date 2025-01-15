@@ -399,17 +399,23 @@
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
-            // Construct the message for WhatsApp with the form data
-            const messageText = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
-            
-            // WhatsApp URL with the pre-filled message
-            const whatsappURL = `https://wa.me/917709732674?text=${encodeURIComponent(messageText)}`;
-            
-            // Redirect the user to WhatsApp
-            window.open(whatsappURL, '_blank');
+        
+            // Ensure no empty values are passed (optional)
+            if (name && email && message) {
+              // Construct the message for WhatsApp with the form data
+              const messageText = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+              
+              // WhatsApp URL with the pre-filled message
+              const whatsappURL = `https://wa.me/917709732674?text=${encodeURIComponent(messageText)}`;
+              
+              // Redirect the user to WhatsApp
+              window.open(whatsappURL, '_blank');
+            } else {
+              alert("Please fill out all fields.");
+            }
           });
         </script>
+        
         
       </div>
     </section>
