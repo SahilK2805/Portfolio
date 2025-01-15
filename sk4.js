@@ -1,4 +1,4 @@
-// Particle background
+
 const particlesContainer = document.getElementById('particles');
 const particlesCount = 100;
 
@@ -14,24 +14,24 @@ for (let i = 0; i < particlesCount; i++) {
 const cursor = document.getElementById('cursor');
 const trailContainer = document.getElementById('trail-container');
 
-// Move the main cursor
+
 document.addEventListener('mousemove', (e) => {
   cursor.style.transform = `translate(${e.clientX - cursor.offsetWidth / 2}px, ${e.clientY - cursor.offsetHeight / 2}px)`;
 
-  // Create a trailing particle
+  
   const trail = document.createElement('div');
   trail.className = 'trail';
-  trail.style.left = `${e.clientX - 5}px`; // Adjust position to center
+  trail.style.left = `${e.clientX - 5}px`; 
   trail.style.top = `${e.clientY - 5}px`;
 
-  // Append particle and remove it after animation
+  
   trailContainer.appendChild(trail);
   setTimeout(() => {
     trail.remove();
-  }, 800); // Matches fade-out animation duration
+  }, 800); 
 });
 
-// Click effect
+
 document.addEventListener('mousedown', () => {
   cursor.classList.add('click');
 });
@@ -41,7 +41,7 @@ document.addEventListener('mouseup', () => {
 
 
 
-// Smooth scrolling for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -51,7 +51,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Typing effect for the hero section
+
 const heroText = "IT Engineering Student | Web Developer | Machine Learning Enthusiast";
 const heroElement = document.querySelector('.hologram p');
 let index = 0;
@@ -66,7 +66,7 @@ function typeHeroText() {
 
 typeHeroText();
 
-// Intersection Observer for fade-in animations
+
 const fadeElements = document.querySelectorAll('.fade-in');
 
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -81,7 +81,7 @@ fadeElements.forEach(element => {
     fadeObserver.observe(element);
 });
 
-// 3D tilt effect for project cards
+
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach(card => {
@@ -133,7 +133,7 @@ skillBars.forEach(bar => {
     observer.observe(bar);
 });
 
-// Form submission with animation
+
 const form = document.querySelector('.contact-form');
 const submitButton = form.querySelector('button[type="submit"]');
 
