@@ -11,16 +11,35 @@ for (let i = 0; i < particlesCount; i++) {
     particlesContainer.appendChild(particle);
 }
 
-// Custom cursor
 const cursor = document.getElementById('cursor');
+const trailContainer = document.getElementById('trail-container');
 
+// Move the main cursor
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+  cursor.style.transform = `translate(${e.clientX - cursor.offsetWidth / 2}px, ${e.clientY - cursor.offsetHeight / 2}px)`;
+
+  // Create a trailing particle
+  const trail = document.createElement('div');
+  trail.className = 'trail';
+  trail.style.left = `${e.clientX - 5}px`; // Adjust position to center
+  trail.style.top = `${e.clientY - 5}px`;
+
+  // Append particle and remove it after animation
+  trailContainer.appendChild(trail);
+  setTimeout(() => {
+    trail.remove();
+  }, 800); // Matches fade-out animation duration
 });
 
-document.addEventListener('mousedown', () => cursor.classList.add('click'));
-document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+// Click effect
+document.addEventListener('mousedown', () => {
+  cursor.classList.add('click');
+});
+document.addEventListener('mouseup', () => {
+  cursor.classList.remove('click');
+});
+
+
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -123,13 +142,11 @@ form.addEventListener('submit', (e) => {
     submitButton.classList.add('sending');
     submitButton.textContent = 'Sending...';
 
-    // Simulate form submission
     setTimeout(() => {
         submitButton.classList.remove('sending');
         submitButton.classList.add('sent');
         submitButton.textContent = 'Sent!';
 
-        // Reset form
         setTimeout(() => {
             form.reset();
             submitButton.classList.remove('sent');
@@ -138,65 +155,12 @@ form.addEventListener('submit', (e) => {
     }, 2000);
 });
 
-// // Initialize Three.js background
-// const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// const renderer = new THREE.WebGLRenderer({ alpha: true });
 
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// document.body.appendChild(renderer.domElement);
-
-// const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-// const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
-// const torus = new THREE.Mesh(geometry, material);
-
-// scene.add(torus);
-// camera.position.z = 30;
-
-// function animate() {
-//     requestAnimationFrame(animate);
-//     torus.rotation.x += 0.01;
-//     torus.rotation.y += 0.005;
-//     renderer.render(scene, camera);
-// }
-
-// animate();
-
-// // Resize Three.js scene on window resize
-// window.addEventListener('resize', () => {
-//     camera.aspect = window.innerWidth / window.innerHeight;
-//     camera.updateProjectionMatrix();
-//     renderer.setSize(window.innerWidth, window.innerHeight);
-// });
 
 function redirectToWhatsApp() {
-    // Replace with your phone number (in international format without the + sign)
     var phoneNumber = '917709732674'; 
-    // Predefined message
     var message = 'Hey Sahil, I want to connect with you for'; 
-    // URL encode the message
     var encodedMessage = encodeURIComponent(message);
-    // Open the WhatsApp chat with the predefined message
     window.open('https://wa.me/' + phoneNumber + '?text=' + encodedMessage, '_blank');
   }
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
 
