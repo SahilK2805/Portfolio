@@ -1329,6 +1329,10 @@ img {
     padding: 3rem 1rem;
   }
 
+  .sk0{
+    font-size: 1rem;
+  }
+
 
   header nav {
     display: none; 
@@ -1367,6 +1371,10 @@ img {
   .social-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .sk0{
+    font-size: 1rem;
   }
 }
 
